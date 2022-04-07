@@ -1,0 +1,39 @@
+import {
+  Body,
+  Controller,
+  Get,
+  Param,
+  ParseIntPipe,
+  Patch,
+  Post,
+} from '@nestjs/common';
+
+import { ProductService } from './product.service';
+import { CreateProductDto, EditProductDto } from './dto';
+
+@Controller('products')
+export class ProductController {
+  constructor(private productService: ProductService) {}
+  @Get()
+  getProducts() {
+    return this.productService.getProducts();
+  }
+
+  @Get(':id')
+  getProductById(@Param('id', ParseIntPipe) id: number) {
+    return this.productService.getProductById(id);
+  }
+
+  @Post()
+  createProduct(@Body() dto: CreateProductDto) {
+    return this.productService.createProduct(dto);
+  }
+
+  @Patch(':id')
+  editBookmarkById(
+    @Body() dto: EditProductDto,
+    @Param('id', ParseIntPipe) id: number,
+  ) {
+    return this.productService.editProduct(id, dto);
+  }
+}

@@ -24,8 +24,34 @@ model User {
   bookmarks Bookmark[]
   
   @@map("users")
-
 }
+
+model Customer {
+  id Int @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  name String?
+  address String?
+  phone String?
+  email String @unique
+  tierLevel String?
+
+  @@map("customers")
+}
+
+model Product {
+  id Int @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  sku String
+  name String
+  price Int
+
+  @@map("products")
+}
+
 model Bookmark {
   id Int @id @default(autoincrement())
   createdAt DateTime @default(now())
