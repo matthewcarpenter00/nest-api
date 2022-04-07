@@ -10,22 +10,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id Int @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  email String @unique
-  hash String
-
-  firstName String?
-  lastName String?
-
-  bookmarks Bookmark[]
-  
-  @@map("users")
-}
-
 model Customer {
   id Int @id @default(autoincrement())
   createdAt DateTime @default(now())
@@ -36,6 +20,8 @@ model Customer {
   phone String?
   email String @unique
   tierLevel String?
+
+  orders Order[]
 
   @@map("customers")
 }
@@ -49,7 +35,43 @@ model Product {
   name String
   price Int
 
+  orderItem OrderItem?
+
   @@map("products")
+}
+
+model Order {
+  id Int @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  docNumber String
+  totalAmount Int
+  invoiceNumber Int
+  poName String
+  shippingRoute String
+  orderStatus String
+  staffId Int
+  additionalNotes String
+
+  customerId Int
+  customer Customer? @relation(fields: [customerId], references: [id])
+
+  orderItem OrderItem?
+
+  @@map("orders")
+}
+
+model OrderItem {
+  id Int @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  order Order @relation(fields:[orderId], references: [id])
+  orderId Int
+
+  product Product? @relation(fields:[productId], references: [id])
+  productId Int
 }
 
 model Bookmark {
@@ -65,4 +87,20 @@ model Bookmark {
   user User @relation(fields: [userId], references: [id])
 
   @@map("bookmarks")
+}
+
+model User {
+  id Int @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  email String @unique
+  hash String
+
+  firstName String?
+  lastName String?
+
+  bookmarks Bookmark[]
+  
+  @@map("users")
 }
