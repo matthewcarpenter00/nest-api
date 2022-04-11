@@ -34,6 +34,7 @@ model Product {
   sku String
   name String
   price Int
+  imageUrl String
 
   orderItem OrderItem?
 
@@ -52,10 +53,9 @@ model Order {
   shippingRoute String
   orderStatus String
   staffId Int
-  additionalNotes String
 
+  customer Customer @relation(fields: [customerId], references: [id])
   customerId Int
-  customer Customer? @relation(fields: [customerId], references: [id])
 
   orderItem OrderItem?
 
@@ -67,11 +67,16 @@ model OrderItem {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
+  quantity Int
   order Order @relation(fields:[orderId], references: [id])
   orderId Int
 
   product Product? @relation(fields:[productId], references: [id])
   productId Int
+
+  notes String
+
+  @@map("order-items")
 }
 
 model Bookmark {

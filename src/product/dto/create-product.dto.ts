@@ -9,6 +9,10 @@ export class CreateProductDto {
   @IsString()
   name: string;
 
+  @IsNotEmpty()
+  @IsString()
+  imageUrl: string;
+
   @IsInt()
   @IsNotEmpty()
   price: number;

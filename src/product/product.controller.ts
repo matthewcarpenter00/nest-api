@@ -30,7 +30,7 @@ export class ProductController {
   }
 
   @Patch(':id')
-  editBookmarkById(
+  editProductById(
     @Body() dto: EditProductDto,
     @Param('id', ParseIntPipe) id: number,
   ) {

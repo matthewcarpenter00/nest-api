@@ -12,6 +12,9 @@ export class CustomerService {
   async getCustomerById(customerEmail: string) {
     const bookmark = await this.prisma.customer.findFirst({
       where: { email: customerEmail },
+      include: {
+        orders: true,
+      },
     });
     return bookmark;
   }

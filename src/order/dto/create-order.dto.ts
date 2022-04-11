@@ -1,4 +1,4 @@
-import { IsInt, IsNotEmpty, IsString } from 'class-validator';
+import { IsInt, IsNotEmpty, IsNumber, IsString } from 'class-validator';
 
 export class CreateOrderDto {
   @IsString()
@@ -13,15 +13,15 @@ export class CreateOrderDto {
   @IsNotEmpty()
   invoiceNumber: number;
 
-  @IsInt()
+  @IsString()
   @IsNotEmpty()
   poName: string;
 
-  @IsInt()
+  @IsString()
   @IsNotEmpty()
   shippingRoute: string;
 
-  @IsInt()
+  @IsString()
   @IsNotEmpty()
   orderStatus: string;
 
@@ -29,7 +29,7 @@ export class CreateOrderDto {
   @IsNotEmpty()
   staffId: number;
 
-  @IsInt()
+  @IsNumber()
   @IsNotEmpty()
-  additionalNotes: string;
+  customerId: number;
 }

@@ -9,6 +9,10 @@ export class EditProductDto {
   @IsString()
   name: string;
 
+  @IsOptional()
+  @IsString()
+  imageUrl: string;
+
   @IsInt()
   @IsOptional()
   price: number;
