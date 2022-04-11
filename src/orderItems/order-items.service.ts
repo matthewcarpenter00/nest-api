@@ -5,16 +5,13 @@ import { CreateOrderItemsDto, EditOrderItemsDto } from './dto';
 @Injectable()
 export class OrderItemsService {
   constructor(private prisma: PrismaService) {}
-  getProducts() {
-    return this.prisma.orderItem.findMany();
-  }
 
-  async getItemsByOrderId(orderId: number) {
-    const orderItem = await this.prisma.orderItem.findFirst({
-      where: { orderId },
-    });
-    return orderItem;
-  }
+  // async getItemsByOrderId(orderId: number) {
+  //   const orderItems = await this.prisma.orderItem.findFirst({
+  //     where: { orderId: orderId },
+  //   });
+  //   return orderItems;
+  // }
 
   async createOrderItem(dto: CreateOrderItemsDto) {
     const orderItem = await this.prisma.orderItem.create({
@@ -29,13 +26,13 @@ export class OrderItemsService {
     });
   }
 
-  async editItemByOrderId(orderId: number, dto: EditOrderItemsDto) {
-    const product = await this.prisma.orderItem.update({
-      where: { orderId },
-      data: {
-        ...dto,
-      },
-    });
-    return product;
-  }
+  // async editItemByOrderId(orderId: number, dto: EditOrderItemsDto) {
+  //   const product = await this.prisma.orderItem.update({
+  //     where: { orderId },
+  //     data: {
+  //       ...dto,
+  //     },
+  //   });
+  //   return product;
+  // }
 }

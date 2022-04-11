@@ -12,6 +12,9 @@ export class OrderService {
   async getOrderById(orderId: number) {
     const order = await this.prisma.order.findFirst({
       where: { id: orderId },
+      include: {
+        orderItems: true,
+      },
     });
     return order;
   }

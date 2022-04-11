@@ -15,10 +15,10 @@ import { CreateOrderItemsDto, EditOrderItemsDto } from './dto';
 @Controller('order-items')
 export class OrderItemsController {
   constructor(private orderItemsService: OrderItemsService) {}
-  @Get(':id')
-  getItemsByOrderId(@Param('id', ParseIntPipe) id: number) {
-    return this.orderItemsService.getItemsByOrderId(id);
-  }
+  // @Get(':id')
+  // getItemsByOrderId(@Param('id', ParseIntPipe) id: number) {
+  //   return this.orderItemsService.getItemsByOrderId(id);
+  // }
 
   @Post()
   createOrderItem(@Body() dto: CreateOrderItemsDto) {
@@ -30,11 +30,11 @@ export class OrderItemsController {
     return this.orderItemsService.deleteOrderItemById(id);
   }
 
-  @Patch(':id')
-  editItemByOrderId(
-    @Body() dto: EditOrderItemsDto,
-    @Param('id', ParseIntPipe) id: number,
-  ) {
-    return this.orderItemsService.editItemByOrderId(id, dto);
-  }
+  // @Patch(':id')
+  // editItemByOrderId(
+  //   @Body() dto: EditOrderItemsDto,
+  //   @Param('id', ParseIntPipe) id: number,
+  // ) {
+  //   return this.orderItemsService.editItemByOrderId(id, dto);
+  // }
 }
