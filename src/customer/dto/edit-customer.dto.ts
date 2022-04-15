@@ -16,4 +16,8 @@ export class EditCustomerDto {
   @IsString()
   @IsOptional()
   tierLevel: string;
+
+  @IsString()
+  @IsOptional()
+  company: string;
 }

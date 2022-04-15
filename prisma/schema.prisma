@@ -20,6 +20,7 @@ model Customer {
   phone String?
   email String @unique
   tierLevel String?
+  company String?
 
   orders Order[]
 
@@ -35,10 +36,18 @@ model Product {
   name String
   price Int
   imageUrl String
+  description String
+  tierLevel String
+  type Type @default(SERVICE)
 
   orderItem OrderItem?
 
   @@map("products")
+}
+
+enum Type {
+  SERVICE
+  NON_INVENTORY
 }
 
 model Order {

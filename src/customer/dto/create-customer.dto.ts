@@ -20,4 +20,8 @@ export class CreateCustomerDto {
   @IsString()
   @IsNotEmpty()
   tierLevel: string;
+
+  @IsString()
+  @IsNotEmpty()
+  company: string;
 }

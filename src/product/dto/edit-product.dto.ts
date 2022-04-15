@@ -16,4 +16,16 @@ export class EditProductDto {
   @IsInt()
   @IsOptional()
   price: number;
+
+  @IsOptional()
+  @IsString()
+  description: string;
+
+  @IsOptional()
+  @IsString()
+  type: any;
+
+  @IsOptional()
+  @IsString()
+  tierLevel: string;
 }
