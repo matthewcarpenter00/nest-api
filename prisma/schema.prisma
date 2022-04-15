@@ -16,11 +16,15 @@ model Customer {
   updatedAt DateTime @updatedAt
 
   name String?
-  address String?
   phone String?
   email String @unique
   tierLevel String?
   company String?
+  address String?
+  address2 String?
+  city String
+  state String
+  zipCode Int
 
   orders Order[]
 

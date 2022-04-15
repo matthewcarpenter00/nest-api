@@ -1,4 +1,4 @@
-import { IsOptional, IsString } from 'class-validator';
+import { IsNumber, IsOptional, IsString } from 'class-validator';
 
 export class EditCustomerDto {
   @IsString()
@@ -20,4 +20,20 @@ export class EditCustomerDto {
   @IsString()
   @IsOptional()
   company: string;
+
+  @IsOptional()
+  @IsString()
+  address2: string;
+
+  @IsOptional()
+  @IsString()
+  city: string;
+
+  @IsOptional()
+  @IsString()
+  state: string;
+
+  @IsNumber()
+  @IsOptional()
+  zipCode: number;
 }
