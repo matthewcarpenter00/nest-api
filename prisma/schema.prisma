@@ -61,7 +61,7 @@ model Order {
 
   docNumber String
   totalAmount Int
-  invoiceNumber Int
+  invoiceNumber Int?
   poName String
   shippingRoute String
   orderStatus String

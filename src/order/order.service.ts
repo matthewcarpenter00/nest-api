@@ -14,6 +14,7 @@ export class OrderService {
       where: { id: orderId },
       include: {
         orderItems: true,
+        customer: true,
       },
     });
     return order;
