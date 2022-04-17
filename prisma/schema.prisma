@@ -44,7 +44,7 @@ model Product {
   tierLevel String
   type Type @default(SERVICE)
 
-  orderItem OrderItem?
+  orderItems OrderItem[]
 
   @@map("products")
 }
