@@ -6,7 +6,15 @@ import { CreateOrderDto, EditOrderDto } from './dto';
 export class OrderService {
   constructor(private prisma: PrismaService) {}
   getOrders() {
-    return this.prisma.order.findMany();
+    return this.prisma.order.findMany({
+      include: {
+        customer: {
+          select: {
+            company: true,
+          },
+        },
+      },
+    });
   }
 
   async getOrderById(orderId: number) {
