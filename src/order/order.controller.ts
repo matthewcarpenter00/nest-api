@@ -31,9 +31,10 @@ export class OrderController {
 
   @Patch(':id')
   editOrderById(
-    @Body() dto: EditOrderDto,
     @Param('id', ParseIntPipe) id: number,
+    @Body() dto: EditOrderDto,
   ) {
+    console.log(dto);
     return this.orderService.editOrder(id, dto);
   }
 }
