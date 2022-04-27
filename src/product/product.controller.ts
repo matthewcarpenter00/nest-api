@@ -36,4 +36,9 @@ export class ProductController {
   ) {
     return this.productService.editProduct(id, dto);
   }
+
+  @Delete(':id')
+  deleteProductById(@Param('id', ParseIntPipe) id: number,) {
+    return this.productService.deleteProduct(id);
+  }
 }

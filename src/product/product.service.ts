@@ -34,4 +34,11 @@ export class ProductService {
     });
     return product;
   }
+
+  async deleteProduct(productId: number) {
+    const product = await this.prisma.product.delete({
+      where: { id: productId },
+    });
+    return product;
+  }
 }
