@@ -6,6 +6,7 @@ import {
   ParseIntPipe,
   Patch,
   Post,
+  Delete,
 } from '@nestjs/common';
 
 import { ProductService } from './product.service';
