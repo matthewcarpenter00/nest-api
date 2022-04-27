@@ -34,7 +34,6 @@ export class OrderController {
     @Param('id', ParseIntPipe) id: number,
     @Body() dto: EditOrderDto,
   ) {
-    console.log(dto);
     return this.orderService.editOrder(id, dto);
   }
 }

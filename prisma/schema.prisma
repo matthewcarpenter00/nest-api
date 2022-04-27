@@ -38,7 +38,7 @@ model Product {
 
   sku String
   name String
-  price Int
+  price Decimal 
   imageUrl String
   description String
   tierLevel String
@@ -60,7 +60,7 @@ model Order {
   updatedAt DateTime @updatedAt
 
   docNumber String
-  totalAmount Int
+  totalAmount Decimal
   invoiceNumber Int?
   poName String
   shippingRoute String

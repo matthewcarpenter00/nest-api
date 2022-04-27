@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { CreateOrderDto, EditOrderDto } from './dto';
+import { Prisma } from '@prisma/client';
 
 @Injectable()
 export class OrderService {
@@ -29,8 +30,9 @@ export class OrderService {
   }
 
   async createOrder(dto: CreateOrderDto) {
+    const totalAmount = new Prisma.Decimal(dto.totalAmount);
     const order = await this.prisma.order.create({
-      data: { ...dto },
+      data: { totalAmount, ...dto },
     });
     return order;
   }

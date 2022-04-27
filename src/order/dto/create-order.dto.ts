@@ -12,7 +12,6 @@ export class CreateOrderDto {
   docNumber: string;
 
   @IsNotEmpty()
-  @IsInt()
   totalAmount: number;
 
   @IsInt()
