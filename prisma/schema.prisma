@@ -87,7 +87,7 @@ model OrderItem {
   product Product? @relation(fields:[productId], references: [id])
   productId Int
 
-  notes String
+  notes String?
 
   @@map("order-items")
 }
