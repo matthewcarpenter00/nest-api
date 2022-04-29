@@ -19,6 +19,7 @@ export class OrderService {
   }
 
   async getOrderById(orderId: number) {
+    const products = [];
     const order = await this.prisma.order.findFirst({
       where: { id: orderId },
       include: {
@@ -26,7 +27,14 @@ export class OrderService {
         customer: true,
       },
     });
-    return order;
+    const { orderItems } = order;
+    for (let i = 0; i < orderItems.length; i++) {
+      const product = await this.prisma.product.findFirst({
+        where: { id: orderItems[i].id },
+      });
+      products.push(product);
+    }
+    return { order, products };
   }
 
   async createOrder(dto: CreateOrderDto) {
