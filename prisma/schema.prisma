@@ -25,6 +25,7 @@ model Customer {
   city String
   state String
   zipCode Int
+  quickbooksId String?
 
   orders Order[]
 
@@ -42,6 +43,7 @@ model Product {
   imageUrl String
   description String
   tierLevel String
+  quickbooksId String?
   type Type @default(SERVICE)
 
   orderItems OrderItem[]
