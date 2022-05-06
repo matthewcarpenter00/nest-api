@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
+import { IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator';
 
 export class CreateCustomerDto {
   @IsString()
@@ -40,4 +40,8 @@ export class CreateCustomerDto {
   @IsNumber()
   @IsNotEmpty()
   zipCode: number;
+
+  @IsString()
+  @IsOptional()
+  quickbooksId: string;
 }

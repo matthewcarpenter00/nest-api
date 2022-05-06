@@ -36,4 +36,8 @@ export class EditCustomerDto {
   @IsNumber()
   @IsOptional()
   zipCode: number;
+
+  @IsString()
+  @IsOptional()
+  quickbooksId: string;
 }

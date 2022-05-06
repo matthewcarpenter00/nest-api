@@ -27,4 +27,8 @@ export class CreateProductDto {
   @IsOptional()
   @IsString()
   tierLevel: string;
+
+  @IsString()
+  @IsOptional()
+  quickbooksId: string;
 }

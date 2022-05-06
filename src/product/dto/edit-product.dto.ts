@@ -28,4 +28,8 @@ export class EditProductDto {
   @IsOptional()
   @IsString()
   tierLevel: string;
+
+  @IsString()
+  @IsOptional()
+  quickbooksId: string;
 }
