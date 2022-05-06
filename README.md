@@ -77,3 +77,6 @@ Nest is [MIT licensed](LICENSE).
 ```bash
 prisma migrate dev --name {name}
 ```
+
+
+test to re deploy
