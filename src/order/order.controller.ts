@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   Param,
   ParseIntPipe,
@@ -27,6 +28,11 @@ export class OrderController {
   @Post()
   createOrder(@Body() dto: CreateOrderDto) {
     return this.orderService.createOrder(dto);
+  }
+
+  @Delete(':id')
+  deleteOrderById(@Param('id', ParseIntPipe) id: number) {
+    return this.orderService.deleteOrderById(id);
   }
 
   @Patch(':id')
