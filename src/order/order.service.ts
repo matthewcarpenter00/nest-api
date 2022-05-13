@@ -30,7 +30,7 @@ export class OrderService {
     const { orderItems } = order;
     for (let i = 0; i < orderItems.length; i++) {
       const product = await this.prisma.product.findFirst({
-        where: { id: orderItems[i].id },
+        where: { id: orderItems[i].productId },
       });
       products.push(product);
     }
@@ -53,5 +53,9 @@ export class OrderService {
       },
     });
     return order;
+  }
+
+  async deleteOrderById(orderId: number) {
+    await this.prisma.order.delete({ where: { id: orderId } });
   }
 }
