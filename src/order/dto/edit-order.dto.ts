@@ -6,7 +6,6 @@ export class EditOrderDto {
   docNumber: string;
 
   @IsOptional()
-  @IsInt()
   totalAmount: number;
 
   @IsInt()
