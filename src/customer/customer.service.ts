@@ -35,4 +35,7 @@ export class CustomerService {
     });
     return user;
   }
+  async deleteCustomer(customerEmail: string) {
+    await this.prisma.customer.delete({ where: { email: customerEmail} });
+  }
 }

@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post } from '@nestjs/common';
 
 import { CustomerService } from './customer.service';
 import { CreateCustomerDto, EditCustomerDto } from './dto';
@@ -27,5 +27,10 @@ export class CustomerController {
     @Param('email') email: string,
   ) {
     return this.customerService.editCustomer(email, dto);
+  }
+
+  @Delete('email')
+  deleteCustomer(@Param('email') email:string,){
+    return this.customerService.deleteCustomer(email);
   }
 }

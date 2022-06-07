@@ -30,11 +30,11 @@ export class OrderItemsController {
     return this.orderItemsService.deleteOrderItemById(id);
   }
 
-  // @Patch(':id')
-  // editItemByOrderId(
-  //   @Body() dto: EditOrderItemsDto,
-  //   @Param('id', ParseIntPipe) id: number,
-  // ) {
-  //   return this.orderItemsService.editItemByOrderId(id, dto);
-  // }
+  @Patch(':id')
+  editOrderItemById(
+    @Body() dto: EditOrderItemsDto,
+    @Param('id', ParseIntPipe) id: number,
+  ) {
+    return this.orderItemsService.editOrderItemById(id, dto);
+  }
 }

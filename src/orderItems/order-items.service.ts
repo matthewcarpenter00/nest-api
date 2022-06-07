@@ -26,13 +26,13 @@ export class OrderItemsService {
     });
   }
 
-  // async editItemByOrderId(orderId: number, dto: EditOrderItemsDto) {
-  //   const product = await this.prisma.orderItem.update({
-  //     where: { orderId },
-  //     data: {
-  //       ...dto,
-  //     },
-  //   });
-  //   return product;
-  // }
+  async editOrderItemById(orderItemId: number, dto: EditOrderItemsDto) {
+    const orderItem = await this.prisma.orderItem.update({
+      where: { id: orderItemId },
+      data: {
+        ...dto,
+      },
+    });
+    return orderItem;
+  }
 }
