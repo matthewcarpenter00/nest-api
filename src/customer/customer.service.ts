@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { CreateCustomerDto, EditCustomerDto } from './dto';
+import { Prisma } from '@prisma/client';
 
 @Injectable()
 export class CustomerService {
@@ -35,6 +36,7 @@ export class CustomerService {
     });
     return user;
   }
+  
   async deleteCustomer(customerEmail: string) {
     await this.prisma.customer.delete({ where: { email: customerEmail} });
   }

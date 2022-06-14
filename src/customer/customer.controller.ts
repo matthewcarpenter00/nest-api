@@ -29,7 +29,7 @@ export class CustomerController {
     return this.customerService.editCustomer(email, dto);
   }
 
-  @Delete('email')
+  @Delete(':email')
   deleteCustomer(@Param('email') email:string,){
     return this.customerService.deleteCustomer(email);
   }
